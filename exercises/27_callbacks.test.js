@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals'
 test('27_callbacks-1: Basic callback - invoke callback passing a number', () => {
   // Crea una funció 'processNumber' que accepti un número i una funció callback
   // La funció ha d'invocar el callback passant-li el número
