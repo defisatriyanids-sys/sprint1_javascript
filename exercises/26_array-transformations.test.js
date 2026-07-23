@@ -2,7 +2,7 @@ test('26_arrays-1: Map - create an array with the square of each number', () => 
   const numbers = [1, 2, 3, 4]
 
   // Utilitza `map()` per crear una nova array amb el quadrat de cada número.
-  const squares = /* INTRODUEIX EL TEU CODI AQUÍ */
+  const squares = numbers.map(number => number ** 2)
 
     expect(squares).toEqual([1, 4, 9, 16])
 })
@@ -11,7 +11,9 @@ test('26_arrays-2: Filter - create an array with only even numbers', () => {
   const numbers = [1, 2, 3, 4]
 
   // Utilitza `filter()` per crear una nova array només amb els números parells.
-  const evenNumbers = /* INTRODUEIX EL TEU CODI AQUÍ */
+  const evenNumbers = numbers.filter(function(element)), {
+    return element % 2 === 0
+  }
 
     expect(evenNumbers).toEqual([2, 4])
 })

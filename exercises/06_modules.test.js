@@ -1,6 +1,9 @@
 import * as Mathy from '../common/Mathy'
 import * as IndexImport from '../common'
 // WRITE YOUR IMPORT STATEMENTS HERE
+import {sqrt as mySqrt, square as mySquare, add} from '../common/Mathy'
+import * as lodash from 'lodash'
+const _ = lodash
 
 test('can import Mathy', () => {
   // this one's already done! You're welcome :)
@@ -11,6 +14,10 @@ test('can import Mathy', () => {
 
 test('06_modules-1: can specify what to import, to only retain pieces of the import', () => {
   // Import `Mathy` again, but pull out only the `sqrt` as mySqrt, and `square` as mySquare
+
+  import { sqrt as mySqrt, square as mySquare } from '../common/Mathy'
+  import * as _ from 'lodash'
+
   expect(mySqrt).toBeDefined()
   expect(mySquare).toBeDefined()
   expect(mySqrt).toBe(Mathy.sqrt)
@@ -19,6 +26,8 @@ test('06_modules-1: can specify what to import, to only retain pieces of the imp
 
 test('06_modules-2: can import from my node_modules', () => {
   // import `lodash`
+  import * as _ from 'lodash'
+
   expect(_).toBeDefined()
 })
 
@@ -31,11 +40,16 @@ test('06_modules-3: can import Mathy', () => {
 test('06_modules-4: can specify what to import, to only retain pieces of the import', () => {
   // El mòdul Mathy ja està importat amb `import * as Mathy`.
   // Ara importa també la funció `add` utilitzant named imports per poder utilitzar-la directament sense accedir a `Mathy`.
+  
+  import { add } from '../common/Mathy'
+
   expect(add(1, 2)).toBe(3)
 })
 
 test('06_modules-5: can import from my node_modules', () => {
   // Importa un mòdul des de node_modules i comprova que funciona
+  import * as lodash from 'lodash'
+
   expect(lodash.isEmpty([])).toBe(true)
 })
 
@@ -43,6 +57,7 @@ test('06_modules-5: can import from my node_modules', () => {
 test.skip('Index import', () => {
   //I have noticed that using index.js is pretty common pattern
   //If someone has been confused about that maybe this helps
+  
   expect(IndexImport.variable1).toBe(/* ENTER YOUR GUESS HERE */)
   expect(IndexImport.variable2).toBe(/* ENTER YOUR GUESS HERE */)
   expect(IndexImport.variable3).toBe(/* ENTER YOUR GUESS HERE */)

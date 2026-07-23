@@ -1,35 +1,39 @@
 test('19_iterators-1: can get the iterator from an array', () => {
   const array = [1, 2, 3]
   // NO MIRIS ELS SEGÜENTS TESTS!
-  const iterator = '?' // com obtens l'iterador?
+  const iterator = array[Symbol.iterator](); // com obtens l'iterador?
   expect(typeof iterator.next === 'function').toBe(true)
 })
 
 test('19_iterators-2: can next() the iterator multiple times', () => {
   const string = 'hello' // <-- SÍ, això és iterable!
   const iterator = string[Symbol.iterator]()
-  expect(iterator.next()).toEqual(/* INTRODUEIX LA TEVA RESPOSTA AQUÍ */)
-  expect(iterator.next()).toEqual(/* INTRODUEIX LA TEVA RESPOSTA AQUÍ */)
-  expect(iterator.next()).toEqual(/* INTRODUEIX LA TEVA RESPOSTA AQUÍ */)
-  expect(iterator.next()).toEqual(/* INTRODUEIX LA TEVA RESPOSTA AQUÍ */)
-  expect(iterator.next()).toEqual(/* INTRODUEIX LA TEVA RESPOSTA AQUÍ */)
-  expect(iterator.next()).toEqual(/* INTRODUEIX LA TEVA RESPOSTA AQUÍ */)
-  expect(iterator.next()).toEqual(/* INTRODUEIX LA TEVA RESPOSTA AQUÍ */)
+  expect(iterator.next()).toEqual('hello')
+  expect(iterator.next()).toEqual('hello')
+  expect(iterator.next()).toEqual('hello')
+  expect(iterator.next()).toEqual('hello')
+  expect(iterator.next()).toEqual('hello')
+  expect(iterator.next()).toEqual('hello')
+  expect(iterator.next()).toEqual('hello')
 })
 
 test('19_iterators-3: can iterate over an iterable with for .. of', () => {
   const array = [1, 2, 3]
-  let sum = 0
+  let sum = 0;
   // escriu un bucle for .. of
   // que sumi tots els elements de l'array
   // ex: `sum += val`
+  for (const val of array){
+    val += array
+  }
+  
   expect(sum).toBe(6)
 })
 
 test('19_iterators-4: can use the ... operator on the iterator', () => {
   const set = new Set([1, 2, 2, 3])
   // Canvia la línia de sota utilitzant destructuring i l’operador rest (`...`) per ignorar el primer element del `Set` i fer que el test passi.
-  const [rest] = set
+  const [,...rest] = set
   expect(rest).toEqual([2, 3])
 })
 

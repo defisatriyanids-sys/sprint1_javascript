@@ -15,17 +15,16 @@ test('01_scope-2: can modify the value of a `let` variable even in the next bloc
   let releaseName = 'ES6'
   {
     // Modifica el valor de releaseName dins del bloc
-    releaseName = 'ES2023'
+    let releaseName = 'ES2023'
   }
   expect(releaseName).toBe('ES2023')
 })
 
 test('01_scope-3: cannot modify the value of a `const` variable', () => {
-  function getReleaseName() {
-    // Tria el teu costat. Li dius ES6 o ES2015?
-    // No pots utilitzar `const` i reasignar el valor!
-   let releaseName = 'ES6' // Si li dius ES2015, canvia això a let o var
-    return releaseName
+  function getReleaseName()
+  {
+   const releaseName = 'ES6'
+   releaseName = 'ES2023'
   }
   expect(getReleaseName).not.toThrow()
 })
@@ -72,7 +71,7 @@ test.skip('01_scope-7: means that we can declare constant with the same name in 
     // Declara una 'd' utilitzant 'const', assignant-li el valor 10
     expect(d).toBe(10)
   }
-  expect(d).toBe(10)
+  expect(d).toBe(5)
 })
 
 /* eslint no-constant-condition:0 */

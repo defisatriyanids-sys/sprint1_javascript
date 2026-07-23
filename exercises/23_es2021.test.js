@@ -6,6 +6,10 @@ test('23_es2021-1: Logical assignment operators (&&=, ||=, ??=)', () => {
 
   // Resol aquí...
 
+  a &&= 'assigned'
+  b ||= 'default'
+  c ??= 'fallback'
+
   expect(a).toBe('assigned')
   expect(b).toBe('default')
   expect(c).toBe('fallback')
@@ -13,7 +17,7 @@ test('23_es2021-1: Logical assignment operators (&&=, ||=, ??=)', () => {
 
 test('23_es2021-2: Numeric separators improve readability', () => {
   // Canvia `null` per un número gran utilitzant separadors numèrics (`_`) per millorar la llegibilitat i fes que el test passi.
-  const largeNumber = null // Resol aquí...
+  const largeNumber = 1_000_000 // Resol aquí...
 
   expect(largeNumber).toBe(1000000)
 })
@@ -26,7 +30,7 @@ test('23_es2021-3: Promise.any returns the first resolved promise', async () => 
     Promise.resolve('Second resolved'),
   ]
 
-  const result = Promise.any(promises)
+  const result = await Promise.any(promises)
 
   expect(result).toBe('First resolved')
 })

@@ -2,24 +2,30 @@ test('13_weakmap-1: has a WeakMap method', () => {
   const key = {name: 'Aaron'}
   const value = {twitter: '@js_dev', gplus: '+AaronFrost'}
   // Crea un nou WeakMap anomenat 'myMap'
+  let myMap = new WeakMap();
   // Afegeix una nova entrada. Utilitza key com a clau i value com a valor
+  myMap.set(key, value);
+
   expect(myMap.has(key)).toBe(true)
 })
 
 test('13_weakmap-2: should enable private members in classes', () => {
   // Si arribes fins aquí, escriu una classe amb variables membres privades utilitzant WeakMaps
   class Person {
+    #name;
+    #age = 0;
+
     constructor(name, age) {
-      this._name = name
-      this._age = age
+      this.#name = name
+      this.#age = age
     }
 
     getName() {
-      return this._name
+      return this.#name
     }
 
     getAge() {
-      return this._age
+      return this.#age
     }
   }
 

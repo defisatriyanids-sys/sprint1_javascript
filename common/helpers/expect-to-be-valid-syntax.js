@@ -19,7 +19,7 @@ expect.extend({
 
     return {
       pass: false,
-      message:
+      message: () =>
         this.utils.matcherHint('.toBeValidSyntax', 'codeString', '') +
         '\n\n' +
         `Expected valid syntax. But it was not.\n` +
