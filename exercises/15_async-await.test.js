@@ -8,11 +8,11 @@ const doAsync = (rejectPromise = false) =>  new Promise((resolve, reject) => set
       } else {
         resolve('resolved')
       }
-    })
+    }, 0)
   )
 
   test('15_async-await-1: should work with resolved promises', async () => {
-  const reulst = await doAsync()
+  const result = await doAsync()
     expect(result).toBe('resolved')
   })
 
