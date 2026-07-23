@@ -20,8 +20,8 @@ test('05_template-literals-1: should support string interpolation', () => {
 test('05_template-literals-2: should support multi-line strings', () => {
   // construeix una cadena amb múltiples línies sense necessitat de caràcters de nova línia escapats
   const multiLine = `
-  How cool
-  is this
+    How cool
+    is this!?
   `
   expect(multiLine).toBe('\n    How cool\n    is this!?\n  ')
 })
@@ -29,14 +29,14 @@ test('05_template-literals-2: should support multi-line strings', () => {
 test('05_template-literals-3: should support string escaping', () => {
   // escapa correctament una cadena en un literal de plantilla per a cadascun d'aquests casos
   expect(`Hi
-    there!`).toBe('Hi\nthere!')
+there!`).toBe('Hi\nthere!')
   expect(`This is \`escaped\` backticks`).toBe('This is `escaped` backticks')
 })
 
 //////// EXTRA CREDIT ////////
 
 // és probable que no utilitzis sovint l'etiquetatge, però pot ser útil!
-test.skip('05_template-literals-4: should call the tagging function', () => {
+test('05_template-literals-4: should call the tagging function', () => {
   const tagIt = (literalString, ...interpolatedParts) => {
     // implementa aquesta funció per fer que el test passi
     return (
