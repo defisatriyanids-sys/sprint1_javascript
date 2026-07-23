@@ -8,13 +8,12 @@ test('19_iterators-1: can get the iterator from an array', () => {
 test('19_iterators-2: can next() the iterator multiple times', () => {
   const string = 'hello' // <-- SÍ, això és iterable!
   const iterator = string[Symbol.iterator]()
-  expect(iterator.next()).toEqual('hello')
-  expect(iterator.next()).toEqual('hello')
-  expect(iterator.next()).toEqual('hello')
-  expect(iterator.next()).toEqual('hello')
-  expect(iterator.next()).toEqual('hello')
-  expect(iterator.next()).toEqual('hello')
-  expect(iterator.next()).toEqual('hello')
+  expect(iterator.next()).toEqual({value: 'h', done: false})
+  expect(iterator.next()).toEqual({value: 'e', done: false})
+  expect(iterator.next()).toEqual({value: 'l', done: false})
+  expect(iterator.next()).toEqual({value: 'l', done: false})
+  expect(iterator.next()).toEqual({value: 'o', done: false})
+  expect(iterator.next()).toEqual({value: undefined, done: true})
 })
 
 test('19_iterators-3: can iterate over an iterable with for .. of', () => {
@@ -24,7 +23,7 @@ test('19_iterators-3: can iterate over an iterable with for .. of', () => {
   // que sumi tots els elements de l'array
   // ex: `sum += val`
   for (const val of array){
-    val += array
+    sum += val
   }
   
   expect(sum).toBe(6)
