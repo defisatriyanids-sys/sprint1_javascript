@@ -6,7 +6,11 @@ test('21_reflect-1: Reflect.apply can be used to call a function', () => {
     },
   }
 
-  const result = Reflect.apply(person)// utilitza Reflect.apply per invocar person.sayHi
+  const result = Reflect.apply(
+    person.sayHi,
+    person,
+    ['Hey there', 'Jaimee']
+  )// utilitza Reflect.apply per invocar person.sayHi
   expect(result).toBe('Hey there Jaimee! My name is Fred')
 })
 
@@ -17,9 +21,8 @@ test('21_reflect-2: Reflect.deleteProperty can be used instead of the `delete` k
     value: 'YOU CANNOT GET RID OF ME!',
   })
   // utilitza Reflect.deleteProperty per eliminar la propietat age de l'objecte person
-  Reflect.deleteProperty(person, 'age')
-  const ageDeleted = delete person.age
-  const protectedDeleted = delete person.protected
+  const ageDeleted =Reflect.deleteProperty(person, 'age')
+  const protectedDeleted = Reflect.deleteProperty(person, 'protected')
   expect(person.age).not.toBeDefined()
   expect(ageDeleted).toBe(true)
   expect(person.protected).toBe('YOU CANNOT GET RID OF ME!')
@@ -47,6 +50,7 @@ test(`21_reflect-3: Reflect.ownKeys returns the object's own (not inherited) key
     'awesome'
   ])
   expect(Object.getOwnPropertyNames(kyle)).toEqual([
+    'awesome',
     'favoriteLanguage'
   ])
   expect(Object.getOwnPropertySymbols(kyle)).toEqual([
