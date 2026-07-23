@@ -23,7 +23,7 @@ test('24_es2022-2: at() method for indexing arrays and strings', () => {
   const string = 'hello'
 
   const lastArrayElement = array.at(-1);
-  const secondLastStringChar = string.at(-1);
+  const secondLastStringChar = string.at(-2);
 
   expect(lastArrayElement).toBe(4)
   expect(secondLastStringChar).toBe('l')
