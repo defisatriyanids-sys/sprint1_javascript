@@ -1,11 +1,7 @@
 test('02_arrow-1: pot substituir funcions tradicionals', () => {
   let fnMultiply, arrowMultiply
-
-  // Escriu dues funcions que prenguin dos paràmetres i retornin el seu producte
-  // Per a 'fnMultiply', assigna-li una funció tradicional
-  // Per a 'arrowMultiply', assigna-li una funció fletxa
-
-  function fnMultiply(num1,num2){
+  
+  fnMultiply = function(num1,num2){
     return num1 * num2
   }
 
@@ -73,10 +69,10 @@ test('02_arrow-4: pot fer que les cadenes de filtres d\'arrays siguin més manej
   // Refactoritza totes les funcions utilitzant funcions fletxa per fer el codi més concís i llegible, assegurant-te que el test segueix passant.
 
     const shoppingList = data
-    .filter(data => d.type !== 'Widget')
-    .filter(data => d.price < 5)
+    .filter(d => d.type !== 'Widget')
+    .filter(d => d.price < 5)
     .sort((a,b) => a.qty - b.qty) 
-    .map(data => d.name)
+    .map(d => d.name)
   
   expect(shoppingList.shift()).toBe('Bacon')
   expect(shoppingList.shift()).toBe('JT Best Hits')
