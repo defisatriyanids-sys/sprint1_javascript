@@ -15,17 +15,19 @@ test('01_scope-2: can modify the value of a `let` variable even in the next bloc
   let releaseName = 'ES6'
   {
     // Modifica el valor de releaseName dins del bloc
-    let releaseName = 'ES2023'
+    releaseName = 'ES2023'
   }
   expect(releaseName).toBe('ES2023')
 })
 
 test('01_scope-3: cannot modify the value of a `const` variable', () => {
-  function getReleaseName()
-  {
-   const releaseName = 'ES6'
-   releaseName = 'ES2023'
+  function getReleaseName() {
+    {
+      const releaseName = 'ES2023'
+      return releaseName
+    }
   }
+
   expect(getReleaseName).not.toThrow()
 })
 
